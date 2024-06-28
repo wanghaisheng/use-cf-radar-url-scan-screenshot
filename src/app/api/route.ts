@@ -1,8 +1,6 @@
-export const maxDuration = 5; // This function can run for a maximum of 5 seconds
+export const maxDuration =60; // This function can run for a maximum of 5 seconds
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from "next/server";
-
-export const dynamic = "force-dynamic";
 
 const CHROMIUM_PATH =
   // "https://vomrghiulbmrfvmhlflk.supabase.co/storage/v1/object/public/chromium-pack/chromium-v123.0.0-pack.tar";
