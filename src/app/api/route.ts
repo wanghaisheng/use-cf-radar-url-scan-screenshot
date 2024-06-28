@@ -11,7 +11,7 @@ async function getBrowser() {
       (mod) => mod.default
     );
     
-    const  { chromium: playwright }  = await import("playwright-core").then(
+    const  { chromium: playwright }  = await import("playwright").then(
       (mod) => mod.default
     );
 
@@ -25,7 +25,7 @@ async function getBrowser() {
     });
     return browser;
   } else {
-    const  { chromium: playwright }  = await import("playwright-core").then(
+    const  { chromium: playwright }  = await import("playwright").then(
       (mod) => mod.default);
 
     const browser = await playwright.launch();
