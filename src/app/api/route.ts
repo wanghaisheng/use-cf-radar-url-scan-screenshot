@@ -7,26 +7,28 @@ const CHROMIUM_PATH =
  "https://github.com/Sparticuz/chromium/releases/download/v123.0.0/chromium-v123.0.0-pack.tar"
 async function getBrowser() {
   if (process.env.VERCEL_ENV === "production") {
-    const chromium = await import("@sparticuz/chromium-min").then(
+    const sparticuzChromium = await import("@sparticuz/chromium-min").then(
       (mod) => mod.default
     );
     
     const  { chromium: playwright }  = await import("playwright").then(
       (mod) => mod.default
     );
+    sparticuzChromium.setHeadlessMode = true
+    sparticuzChromium.setLocale = 'en-US'
 
-    const executablePath = await chromium.executablePath(CHROMIUM_PATH);
+    const executablePath = await sparticuzChromium.executablePath(CHROMIUM_PATH);
 
     const browser = await playwright.launch({
-      args: chromium.args,
+      args: sparticuzChromium.args,
       executablePath:executablePath,
-      headless: chromium.headless,
+      headless: sparticuzChromium.headless,
     });
     return browser;
   } else {
     const  { chromium: playwright }  = await import("playwright").then(
       (mod) => mod.default);
-
+  
     const browser = await playwright.launch();
     return browser;
   }
