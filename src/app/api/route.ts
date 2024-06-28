@@ -15,7 +15,6 @@ async function getBrowser() {
       (mod) => mod.default
     );
     sparticuzChromium.setHeadlessMode = true
-    sparticuzChromium.setLocale = 'en-US'
 
     const executablePath = await sparticuzChromium.executablePath(CHROMIUM_PATH);
 
