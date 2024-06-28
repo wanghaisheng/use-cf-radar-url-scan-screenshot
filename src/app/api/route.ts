@@ -19,8 +19,7 @@ async function getBrowser() {
 
     const browser = await playwright.launch({
       args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      executablePath,
+      executablePath:executablePath,
       headless: chromium.headless,
     });
     return browser;
